@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "projeto-padaria01"
+version = "0.1.0"
+description = ""
+authors = ["Alexandre Batista Silva <mecanismo3000@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flask = "^3.0.3"
+flask-sqlalchemy = "^3.1.1"
+gunicorn = "^23.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

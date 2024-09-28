@@ -1,0 +1,54 @@
+ {% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+     <br />
+     <div class="d-flex justify-content-center">
+      <h1>Cadastrar produtos</h1>
+     </div>
+     <hr />
+     <form 
+     action="{{ url_for('cadastrar_produto')}}"
+     class="form-control"
+     enctype="multipart/form-data"
+     method="post">
+        <div class="mb-3">
+             <label for="nome" class="form-label">Nome do produto:</label>
+             <input type="text" class="form-control" name="nome" required />
+        </div>
+       <div class="mb-3">
+      <label for="descricao" class="form-label">Descrição:</label>
+      <textarea class="form-control" name="descricao" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="ingredientes" class="form-label">Ingredientes</label>
+      <input type="text" class="form-control" name="ingredientes" />
+    </div>
+    <div class="mb-3">
+      <label for="origem" class="form-label">Origem</label>
+      <input type="text" class="form-control" name="origem" />
+    </div>
+    <div class="mb-3">
+      <label for="imagem" class="form-label">Imagem</label>
+      <input type="file" class="form-control" name="imagem" />
+    </div>
+    <div class="d-flex justify-content-center">  <!-- Alinhando o botão ao centro -->
+      <input class="btn btn-primary" type="submit" value="Cadastrar produto" />
+    </div>  <!-- Fechamento da div do botão -->
+  </form>
+</div>
+
+{% if status %}
+    {% if status ['type'] == 'sucesso' %}
+    <div class="alert alert-success d-flex justify-content-center" role="alert">
+        {{status['message']}}
+</div>
+         
+    {% else %}
+    <div class="alert alert-danger d-flex justify-content-center" role="alert">
+        {{status['message']}}
+</div>
+    {% endif %}
+{%endif %}    
+
+{% endblock %}

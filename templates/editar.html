@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+    <br>
+    <div class="d-flex justify-content-center">
+        <h1>Editar produto</h1>
+    </div>
+    <hr>
+    <form 
+    action="{{url_for('editar_produto', id=produto.id)}}" 
+    class="form-control" 
+    enctype="multipart/form-data"
+    method="post">
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome do produto:</label>
+            <input type="text" class="form-control" name="nome" value="{{produto.nome}}" required>
+        </div>
+          <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição:</label>
+            <textarea class="form-control" name="descricao" rows="3">{{produto.descricao}}</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="ingredientes" class="form-label">Ingredientes:</label>
+            <input type="text" class="form-control" name="ingredientes" value="{{produto.ingredientes}}">
+        </div>
+        <div class="mb-3">
+            <label for="origem" class="form-label">Origem:</label>
+            <input type="text" class="form-control" name="origem" value="{{produto.origem}}">
+        </div>
+        <div class="mb-3">
+            <label for="imagem" class="form-label">Imagem:</label>
+            <input type="file" class="form-control" name="imagem">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Finalizar edição">
+    </form>
+</div>
+<br>
+{% if status %}
+    {% if status['type'] == 'sucesso' %}
+    <div class="alert alert-success d-flex justify-content-center" role="alert">
+        {{status['message']}}
+      </div>
+    {% else %}
+    <div class="alert alert-danger d-flex justify-content-center" role="alert">
+        {{status['message']}}
+      </div>
+    {% endif %}
+{% endif %}
+
+{% endblock %}

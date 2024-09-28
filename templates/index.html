@@ -1,0 +1,12 @@
+{% extends 'base.html' %} 
+
+{% block main %}
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <img
+      src="{{ url_for('static', filename='imagens/padaria.jpg') }}"
+      alt="Imagem de uma padaria no sistema Flask"
+    />
+  </div>
+</div>
+{% endblock %}
